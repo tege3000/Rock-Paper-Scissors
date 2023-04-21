@@ -1,10 +1,6 @@
 //getComputerChoice
 //
 //generate random number between 1 to 3
-//if number chosen is 1 return rock
-//if number chosen is 2 return paper
-//if number chosen is 3 return scissors
-
 function getComputerChoice() {
     const choice = Math.floor(Math.random() * 3) + 1;
 
@@ -32,19 +28,7 @@ function getComputerChoice() {
 //playRound
 //
 //Total number of possible outcomes is 3, but given 2 players we have 3^2 possibilities
-//
-//PlayerSelection Possible outcomes 
-//if playerSelection is equal to Rock and computerSelection is Rock, then its a draw
-//if playerSelection is equal to Rock and computerSelection is Paper, then Player Loses
-//if playerSelection is equal to Rock and computerSelection is Scissors, then Player Wins
-// 
-//if playerSelection is equal to Paper and computerSelection is Rock, then Player Wins
-//if playerSelection is equal to Paper and computerSelection is Paper, then its a Draw
-//if playerSelection is equal to Paper and computerSelection is Scissors, then Player Loses
-// 
-//if playerSelection is equal to Scissors and computerSelection is Rock, then Player Loses
-//if playerSelection is equal to Scissors and computerSelection is Paper, then Player Wins
-//if playerSelection is equal to Scissors and computerSelection is Scissors, then its a Draw
+//to determine if the player wins or not.
 
 function playRound(playerSelection, computerSelection) {
     let result = "";
@@ -98,9 +82,6 @@ function playRound(playerSelection, computerSelection) {
 //
 //
 //get computer choice, player selection using prompt and call playRound 5 times
-//add algorithm to keep track of player and computer scores
-//if gameResult == 1, then player wins that round
-//if gameResult == -1 then computer wins that round
 function game() {
     
     let playerScore = 0;
