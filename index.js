@@ -21,7 +21,6 @@ function getComputerChoice() {
             break;
     }
 
-    console.log(result);
     return result;
 }
 
@@ -74,7 +73,11 @@ function playRound(playerSelection, computerSelection) {
         console.log("Player Seclection cannot be empty or anything other than rock, paper, or scissors");
     }
 
-    console.log(result);
+    let resultsDiv = document.querySelector('.results');
+    let resultsH  = document.createElement('h3');
+    resultsH.textContent = result;
+    resultsDiv.appendChild(resultsH);
+
     return playerScore;
 }
 
@@ -83,26 +86,40 @@ function playRound(playerSelection, computerSelection) {
 //
 //get computer choice, player selection using prompt and call playRound 5 times
 function game() {
-    
+    let choices = document.querySelectorAll(".rps-choice");
+
     let playerScore = 0;
     let computerScore = 0;
 
-    for(let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Choose one, Rock, Paper, or Scissors?");
-        let computerSelection = getComputerChoice();
-        let gameResult = playRound(playerSelection, computerSelection); 
-        
-
-        if(gameResult == 1) {
-            playerScore++;
-        }
-        
-        if(gameResult == -1) {
-            computerScore++;
-        } 
-    }
-
-    console.log(`Player Score: ${playerScore} \nComputer Score: ${computerScore}`);
+    choices.forEach(choice => {
+        choice.addEventListener("click", (e) => {
+            let computerSelection = getComputerChoice();
+            let playerSelection = choice.textContent;
+            let gameResult = playRound(playerSelection, computerSelection); 
+    
+            if(gameResult == 1) {
+                playerScore++;
+            }
+            
+            if(gameResult == -1) {
+                computerScore++;
+            } 
+            console.log(gameResult);
+    
+            console.log(playerScore);
+            console.log(computerScore);
+    
+    
+    
+            if(playerScore == 5 || computerScore == 5) {
+                let scoreH = document.createElement('h1');
+                let resultsDiv = document.querySelector('.results');
+            
+                scoreH.textContent = `Player Score: ${playerScore}, Computer Score: ${computerScore}`;
+                resultsDiv.appendChild(scoreH);
+            }   
+        })
+    }); 
 }
 
 game();
