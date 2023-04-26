@@ -117,6 +117,9 @@ function game() {
             
                 scoreH.textContent = `Player Score: ${playerScore}, Computer Score: ${computerScore}`;
                 resultsDiv.appendChild(scoreH);
+
+                playerScore = 0;
+                computerScore = 0;
             }   
         })
     }); 
